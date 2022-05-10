@@ -1,0 +1,11 @@
+import React, { FC } from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+function render() {
+  ReactDOM.render(
+    <App />
+  , document.getElementById("main"));
+}
+
+render();

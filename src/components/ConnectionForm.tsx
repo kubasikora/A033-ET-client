@@ -1,39 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
-import { Box, TextField, Stack, Button, CircularProgress, Alert, Snackbar } from "@mui/material";
+import React, { FC } from "react";
+import { Box, TextField, Stack } from "@mui/material";
+import { ActionButton } from "./ActionButton";
+import { FeedbackSnackbar, useFeedback } from "./FeedbackSnackbar";
+
 
 export const ConnectionForm: FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [handler, params, openSnackbar] = useFeedback();
 
-  const timer = React.useRef<number>();
-  useEffect(() => {
-    return () => {
-      clearTimeout(timer.current);
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    if (!loading) {
-      setSuccess(false);
-      setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-        setOpen(true);
-      }, 1000);
-    }
-  };
-
-  const handleClose = (
-    _event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
+  const handleButtonClick = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    openSnackbar("error", "Nie udało połączyć się z serwerem")
   };
 
   return (
@@ -59,52 +35,12 @@ export const ConnectionForm: FC = () => {
         <TextField required id="port-input" label="Port" defaultValue="13334" />
       </div>
       <Stack direction="row-reverse">
-        <Box sx={{ m: 1, mr: 0, position: "relative" }}>
-          <Button
-            variant="contained"
-            disabled={loading}
-            onClick={handleButtonClick}
-          >
-            Połącz
-          </Button>
-          {loading && (
-            <CircularProgress
-              size={24}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                marginTop: "-12px",
-                marginLeft: "-12px",
-              }}
-            />
-          )}
-        </Box>
+        <ActionButton handler={handleButtonClick} />
       </Stack>
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      >
-        {success ? (
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{ width: "100%" }}
-          >
-            Połączono z serwerem!
-          </Alert>
-        ) : (
-          <Alert
-            onClose={handleClose}
-            severity="error"
-            sx={{ width: "100%" }}
-          >
-            Nie udało połączyć się z serwerem!
-          </Alert>
-        )}
-      </Snackbar>
+      <FeedbackSnackbar
+        handler={handler}
+        params={params}
+      />
     </Box>
   );
 };

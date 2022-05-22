@@ -1,26 +1,20 @@
 import React, { FC, useEffect, useState } from "react";
-import { Card, CardActions, CardContent, Typography, Button, CircularProgress, Alert } from "@mui/material";
+import { Card, CardActions, CardContent, Typography, Button, InputLabel, FormControl, Alert, MenuItem } from "@mui/material";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { ActionButton } from "./ActionButton";
 
 export const ServerSettings: FC = () => {
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [trigger, setTrigger] = useState('INT');
 
-  const timer = React.useRef<number>();
-  useEffect(() => {
-    return () => {
-      clearTimeout(timer.current);
-    };
-  }, []);
+  const handleTriggerChange = (event: SelectChangeEvent) => {
+    setTrigger(event.target.value);
+  };
 
-  const handleButtonClick = () => {
-    if (!loading) {
-      setSuccess(false);
-      setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-      }, 1000);
-    }
+  const handleButtonClick = async () => {
+    setSuccess(false);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setSuccess(true);
   };
 
   return (
@@ -29,20 +23,22 @@ export const ServerSettings: FC = () => {
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Ustawienia serwera
         </Typography>
-        <Typography variant="h5" component="div">
-          be nev o lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <FormControl fullWidth sx={{ m: 1, minWidth: 120 }} size="small">
+         <InputLabel id="demo-select-small">Triggering</InputLabel>
+            <Select
+            labelId="demo-select-small"
+            id="demo-select-small"
+            value={trigger}
+            label="Triggering"
+            onChange={handleTriggerChange}
+        >
+            <MenuItem value="INT">INT</MenuItem>
+            <MenuItem value="DES">DES</MenuItem>
+        </Select>
+        </FormControl>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <ActionButton handler={handleButtonClick} />
       </CardActions>
     </Card>
   );

@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Card, CardActions, CardContent, Typography, Button, CircularProgress, Alert } from "@mui/material";
+import { Card, CardActions, CardContent, Typography, Button } from "@mui/material";
 
 export const TimersClock: FC = () => {
   const [loading, setLoading] = useState(false);

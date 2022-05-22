@@ -2,26 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { Card, CardActions, CardContent, Typography, Button } from "@mui/material";
 
 export const TimersClock: FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  const timer = React.useRef<number>();
-  useEffect(() => {
-    return () => {
-      clearTimeout(timer.current);
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    if (!loading) {
-      setSuccess(false);
-      setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-      }, 1000);
-    }
-  };
 
   return (
     <Card>

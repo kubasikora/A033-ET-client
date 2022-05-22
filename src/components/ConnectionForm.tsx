@@ -35,7 +35,7 @@ export const ConnectionForm: FC = () => {
         <TextField required id="port-input" label="Port" defaultValue="13334" />
       </div>
       <Stack direction="row-reverse">
-        <ActionButton handler={handleButtonClick} />
+        <ActionButton handler={handleButtonClick} label="Połącz" />
       </Stack>
       <FeedbackSnackbar
         handler={handler}

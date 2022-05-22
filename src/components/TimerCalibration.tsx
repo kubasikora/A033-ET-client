@@ -1,16 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import {
-  Box,
   Card,
-  CardActions,
   CardContent,
   Typography,
   Stack,
-  Button,
   TextField,
   InputAdornment,
-  CircularProgress,
-  Alert,
 } from "@mui/material";
 import { ActionButton } from "./ActionButton";
 
@@ -51,7 +46,7 @@ export const TimerCalibration: FC = () => {
               endAdornment: <InputAdornment position="end">ps</InputAdornment>,
             }}
           />
-          <ActionButton handler={handleButtonClick} />
+          <ActionButton handler={handleButtonClick} label="Kalibruj" />
         </Stack>
       </CardContent>
     </Card>

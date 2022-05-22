@@ -3,9 +3,10 @@ import { Box, Button, CircularProgress } from "@mui/material";
 
 interface ActionButtonProps {
   handler: () => Promise<void>
+  label: string
 }
 
-export const ActionButton: FC<ActionButtonProps> = ({ handler }) => {
+export const ActionButton: FC<ActionButtonProps> = ({ handler, label }) => {
   const [loading, setLoading] = useState(false);
 
   const handleButtonClick = async () => {
@@ -18,7 +19,7 @@ export const ActionButton: FC<ActionButtonProps> = ({ handler }) => {
     <>
       <Box sx={{ m: 1, mr: 0, position: "relative" }}>
         <Button disabled={loading} onClick={handleButtonClick}>
-          Kalibruj
+          {label}
         </Button>
         {loading && (
           <CircularProgress

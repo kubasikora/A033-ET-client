@@ -8,7 +8,7 @@ export const ConnectionPage: FC = () => {
     <>
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5">Połącz z serwerem</Typography>
-        <ConnectionStatus isConnected={true}/>
+        <ConnectionStatus isConnected={false}/>
       </Stack>
       <ConnectionForm />
     </>

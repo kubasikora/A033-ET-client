@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { TimerCalibration } from "../components/TimerCalibration";
 import { Typography, Stack } from "@mui/material";
 import { ServerSettings } from "../components/ServerSettings";
-import { TimersClock } from "../components/TimersClock";
 
 export const CalibrationPage: FC = () => {
   return (
@@ -11,7 +10,6 @@ export const CalibrationPage: FC = () => {
       <Stack sx={{pb: 5}} spacing={2}>
         <TimerCalibration />
         <ServerSettings />
-        <TimersClock />
       </Stack>
     </>
   );

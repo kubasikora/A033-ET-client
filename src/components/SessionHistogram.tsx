@@ -1,6 +1,6 @@
 import { Typography, Card } from "@mui/material";
 import React, { FC } from "react";
-import { VictoryChart, VictoryHistogram, VictoryLabel } from "victory";
+import { VictoryChart, VictoryHistogram } from "victory";
 
 export const SessionHistogram: FC<{}> = () => {
   const sampleHistogramData = [

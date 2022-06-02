@@ -12,7 +12,10 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "paths": {
-      "*": ["node_modules/*"]
+      "*": ["node_modules/*"],
+    "lib": [
+      "es2021"
+    ]
     }
   },
   "include": ["src/**/*"]

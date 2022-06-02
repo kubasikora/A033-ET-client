@@ -24,25 +24,25 @@ export const BottomNav: FC = () => {
         }}
       >
         <BottomNavigationAction
-          label="Połączenie"
+          label="Connection"
           icon={<CableIcon />}
           component={Link}
           to="/connection"
         />
         <BottomNavigationAction
-          label="Kalibracja"
+          label="Calibration"
           icon={<ScaleIcon />}
           component={Link}
           to="/calibration"
         />
         <BottomNavigationAction
-          label="Pomiar"
+          label="Measurement"
           icon={<AddchartIcon />}
           component={Link}
           to="/measurement"
         />
         <BottomNavigationAction
-          label="Analiza"
+          label="Analysis"
           icon={<BarChartIcon />}
           component={Link}
           to="/analysis"

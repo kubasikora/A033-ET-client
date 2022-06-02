@@ -7,7 +7,7 @@ interface ConnectionStatusProps {
 
 export const ConnectionStatus: FC<ConnectionStatusProps> = ({ isConnected }) => {
   if(isConnected)
-    return <Chip color="success" variant="outlined" label="Połączono" />
+    return <Chip color="success" variant="outlined" label="Connected" />
   else
-    return <Chip color="warning" variant="outlined" label="Brak połączenia" />
+    return <Chip color="warning" variant="outlined" label="No connection" />
 }

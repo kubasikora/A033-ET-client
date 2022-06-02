@@ -9,6 +9,8 @@ import {
   Stack,
   MenuItem,
 } from "@mui/material";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { ActionButton } from "./ActionButton";
 import { FeedbackSnackbar, useFeedback } from "./FeedbackSnackbar";
@@ -16,21 +18,29 @@ import { FeedbackSnackbar, useFeedback } from "./FeedbackSnackbar";
 export const ServerSettings: FC = () => {
   const [trigger, setTrigger] = useState("INT");
   const [handler, params, openSnackbar] = useFeedback();
+  const [clock, setClock] = React.useState('internal');
 
   const handleTriggerChange = (event: SelectChangeEvent) => {
     setTrigger(event.target.value);
   };
 
+  const handleClock = (
+    event: React.MouseEvent<HTMLElement>,
+    newClock: string | null,
+  ) => {
+    setClock(newClock);
+  };
+
   const handleButtonClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    openSnackbar("success", "Pomyślnie zmieniono ustawienia serwera");
+    openSnackbar("success", "Event timer settings saved successfully!");
   };
 
   return (
     <Card>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Ustawienia serwera
+          Event Timer settings
         </Typography>
         <FormControl fullWidth sx={{ m: 1, ml: 0, minWidth: 120 }} size="small">
           <InputLabel id="demo-select-small">Triggering</InputLabel>
@@ -84,9 +94,25 @@ export const ServerSettings: FC = () => {
             }}
           />
         </FormControl>
+
+            <Stack>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Clock source
+          </Typography>
+          <ToggleButtonGroup
+            color="primary"
+            size="small"
+            value={clock}
+            exclusive
+            onChange={handleClock}
+          >
+            <ToggleButton value="internal">Internal</ToggleButton>
+            <ToggleButton value="external">External</ToggleButton>
+          </ToggleButtonGroup>
+        </Stack>
       </CardContent>
-      <Stack direction="row-reverse" mr={1}>
-        <ActionButton handler={handleButtonClick} label="Zmień" />
+      <Stack direction="row-reverse" mr={1} mt={-7}>
+        <ActionButton handler={handleButtonClick} label="Save" />
       </Stack>
       <FeedbackSnackbar handler={handler} params={params} />
     </Card>

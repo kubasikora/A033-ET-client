@@ -21,7 +21,7 @@ export const TimerCalibration: FC = () => {
     <Card>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Kalibracja urządzenia
+          Device calibration
         </Typography>
         <Stack
           direction="row"
@@ -31,7 +31,7 @@ export const TimerCalibration: FC = () => {
         >
           <TextField
             id="calibration-output"
-            label="Dokładność"
+            label="Std. deviation"
             size="small"
             disabled
             value={(Math.round(value * 1000) / 1000).toFixed(3)}
@@ -46,7 +46,7 @@ export const TimerCalibration: FC = () => {
               endAdornment: <InputAdornment position="end">ps</InputAdornment>,
             }}
           />
-          <ActionButton handler={handleButtonClick} label="Kalibruj" />
+          <ActionButton handler={handleButtonClick} label="Calibrate" />
         </Stack>
       </CardContent>
     </Card>

@@ -17,15 +17,16 @@ export const AnalysisPage: FC = () => {
   return (
     <>
       <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
-        <Typography variant="h5">
-          Analiza wyników
-        </Typography>
+        <Stack>
+          <Typography variant="h5">Current session:</Typography>
+          <Typography variant="h6" color="text.secondary">02-06-2022-19-28-03.csv</Typography>
+        </Stack>
         <ExportButton handler={handleButtonClick} />
       </Stack>
       <Box sx={{ pb: 5 }}>
         <ImageList cols={3} gap={8}>
           <ImageListItem>
-            <StatCard label="Liczba próbek" value={100} />
+            <StatCard label="No. of points" value={100} />
           </ImageListItem>
           <ImageListItem>
             <StatCard label="Min" value={Math.random()} unit="ns" float />
@@ -39,11 +40,11 @@ export const AnalysisPage: FC = () => {
 
         <ImageList cols={3} gap={8}>
           <ImageListItem>
-            <StatCard label="Średnia" value={Math.random()} unit="ns" float />
+            <StatCard label="Mean" value={Math.random()} unit="ns" float />
           </ImageListItem>
           <ImageListItem>
             <StatCard
-              label="Odchylenie std."
+              label="Std. deviation"
               value={Math.random()}
               unit="ns"
               float
@@ -51,7 +52,7 @@ export const AnalysisPage: FC = () => {
           </ImageListItem>
           <ImageListItem>
             <StatCard
-              label="Wariancja"
+              label="Variance"
               value={Math.random()}
               unit={"ns" + String.fromCharCode(178)}
               float

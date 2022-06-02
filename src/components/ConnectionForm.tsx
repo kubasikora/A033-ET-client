@@ -9,7 +9,7 @@ export const ConnectionForm: FC = () => {
 
   const handleButtonClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    openSnackbar("error", "Nie udało połączyć się z serwerem")
+    openSnackbar("error", "Can't connect to server")
   };
 
   return (
@@ -26,7 +26,7 @@ export const ConnectionForm: FC = () => {
         <TextField
           required
           id="ip-address-input"
-          label="Adres IP"
+          label="IP Address"
           defaultValue="10.0.0.1"
           fullWidth
         />
@@ -35,7 +35,7 @@ export const ConnectionForm: FC = () => {
         <TextField required id="port-input" label="Port" defaultValue="13334" />
       </div>
       <Stack direction="row-reverse">
-        <ActionButton handler={handleButtonClick} label="Połącz" />
+        <ActionButton handler={handleButtonClick} label="Connect" />
       </Stack>
       <FeedbackSnackbar
         handler={handler}

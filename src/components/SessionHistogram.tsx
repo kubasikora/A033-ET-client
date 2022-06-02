@@ -17,7 +17,7 @@ export const SessionHistogram: FC<{}> = () => {
     <>
       <Card variant="outlined">
         <Typography sx={{ fontSize: 16, m: 2, mb: -2 }} color="text.secondary" gutterBottom>
-          Histogram pomiarów sesji
+          Histogram
         </Typography>
         <VictoryChart domainPadding={1}>
           <VictoryHistogram

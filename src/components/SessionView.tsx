@@ -27,7 +27,7 @@ export const SessionView: FC<{}> = () => {
                 data: { fill: "#1976d2" }
             }}
             size={2}
-            data={sampleData}
+            data={[]}
           />
         </VictoryChart>
       </Card>

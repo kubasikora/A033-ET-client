@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Box, TextField, Stack } from "@mui/material";
 import { ActionButton } from "./ActionButton";
-import { FeedbackSnackbar, useFeedback } from "./FeedbackSnackbar";
-
+import { FeedbackSnackbar } from "./FeedbackSnackbar";
+import useFeedback from "../hooks/useFeedback";
 
 export const ConnectionForm: FC = () => {
   const [handler, params, openSnackbar] = useFeedback();

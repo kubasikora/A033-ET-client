@@ -21,7 +21,6 @@ export const SessionHistogram: FC<{}> = () => {
         </Typography>
         <VictoryChart domainPadding={1}>
           <VictoryHistogram
-            //   binSpacing={10}
             style={{ data: { fill: "#1976d2" } }}
             data={sampleHistogramData}
           />

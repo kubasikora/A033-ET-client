@@ -16,7 +16,7 @@ export const StatCard: FC<StatCardProps> = ({ label, value, unit, float = false 
   }
   
   return (
-    <Card variant="outlined" raised={true}>
+    <Card variant="outlined">
       <CardContent>
         <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
           {label}

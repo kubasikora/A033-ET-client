@@ -13,7 +13,7 @@ export const TimerCalibration: FC = () => {
   const [value, setValue] = useState(0);
 
   const handleButtonClick = async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setValue(3.451 + Math.random());
   };
 
@@ -39,7 +39,7 @@ export const TimerCalibration: FC = () => {
               width: 150,
               "& .MuiInputLabel-root.Mui-disabled": { color: "black" },
               "& .MuiOutlinedInput-input.Mui-disabled": {
-                "-webkit-text-fill-color": "black",
+                WebkitTextFillColor: "black",
               },
             }}
             InputProps={{

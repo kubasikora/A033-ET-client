@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box, TextField, Stack, Typography, IconButton } from "@mui/material";
+import { Box, TextField, Stack, IconButton } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 export const NewMeasurement: FC = () => {
@@ -36,7 +36,7 @@ export const NewMeasurement: FC = () => {
               defaultValue={defaultValue()}
             />
           </Box>
-          <IconButton size="large" color="primary">
+          <IconButton size="large" color="primary" id="new-measurement-button">
             <PlayArrowIcon fontSize="inherit"/>
           </IconButton>
         </Stack>

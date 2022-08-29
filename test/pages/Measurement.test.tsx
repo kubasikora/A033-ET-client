@@ -2,12 +2,12 @@ import React from "react";
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 
-import { ConnectionPage } from "../../src/pages/Connection";
+import { MeasurementPage } from "../../src/pages/Measurement";
 
-describe('ConnectionPage', () => {
+describe('MeasurementPage', () => {
   it('should render the page', () => {
-    render(<ConnectionPage />);
-    const element = screen.getByText('Connect to server');
+    render(<MeasurementPage />);
+    const element = screen.getByText('New measurement');
     expect(element).toBeInTheDocument();
   });
 });

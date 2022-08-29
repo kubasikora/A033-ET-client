@@ -13,7 +13,8 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { ActionButton } from "./ActionButton";
-import { FeedbackSnackbar, useFeedback } from "./FeedbackSnackbar";
+import { FeedbackSnackbar } from "./FeedbackSnackbar";
+import useFeedback from "../hooks/useFeedback";
 
 export const ServerSettings: FC = () => {
   const [trigger, setTrigger] = useState("INT");
@@ -25,7 +26,7 @@ export const ServerSettings: FC = () => {
   };
 
   const handleClock = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newClock: string | null,
   ) => {
     setClock(newClock);

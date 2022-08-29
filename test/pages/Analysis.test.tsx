@@ -2,12 +2,12 @@ import React from "react";
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 
-import { ConnectionPage } from "../../src/pages/Connection";
+import { AnalysisPage } from "../../src/pages/Analysis";
 
-describe('ConnectionPage', () => {
+describe('AnalysisPage', () => {
   it('should render the page', () => {
-    render(<ConnectionPage />);
-    const element = screen.getByText('Connect to server');
+    render(<AnalysisPage />);
+    const element = screen.getByText('Current session:');
     expect(element).toBeInTheDocument();
   });
 });

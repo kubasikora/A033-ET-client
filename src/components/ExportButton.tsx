@@ -19,8 +19,8 @@ export const ExportButton: FC<ExportButtonProps> = ({ handler }) => {
     <>
       <Box sx={{ position: "relative" }}>
       <Tooltip title="Load new file">
-        <IconButton disabled={loading} onClick={handleButtonClick}>
-          <FileDownloadIcon />
+        <IconButton disabled={loading} onClick={handleButtonClick} id="export-button">
+          <FileDownloadIcon/>
         </IconButton>
         </Tooltip>
         {loading && (

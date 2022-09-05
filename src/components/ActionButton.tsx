@@ -18,11 +18,12 @@ export const ActionButton: FC<ActionButtonProps> = ({ handler, label }) => {
   return (
     <>
       <Box sx={{ m: 1, mr: 0, position: "relative" }}>
-        <Button disabled={loading} onClick={handleButtonClick}>
+        <Button disabled={loading} onClick={handleButtonClick} role="button">
           {label}
         </Button>
         {loading && (
           <CircularProgress
+            role="progressbar"
             size={24}
             sx={{
               position: "absolute",

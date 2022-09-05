@@ -3,13 +3,16 @@ import { Box, TextField, Stack } from "@mui/material";
 import { ActionButton } from "./ActionButton";
 import { FeedbackSnackbar } from "./FeedbackSnackbar";
 import useFeedback from "../hooks/useFeedback";
+import appTexts from "../appTexts";
+
+const { connectionPage } = appTexts;
 
 export const ConnectionForm: FC = () => {
   const [handler, params, openSnackbar] = useFeedback();
 
   const handleButtonClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    openSnackbar("error", "Can't connect to server")
+    openSnackbar("error", connectionPage.errorToastMessage);
   };
 
   return (
@@ -26,21 +29,23 @@ export const ConnectionForm: FC = () => {
         <TextField
           required
           id="ip-address-input"
-          label="IP Address"
+          label={connectionPage.ipAddressLabel}
           defaultValue="10.0.0.1"
           fullWidth
         />
       </div>
       <div>
-        <TextField required id="port-input" label="Port" defaultValue="13334" />
+        <TextField
+          required
+          id="port-input"
+          label={connectionPage.portLabel}
+          defaultValue="13334"
+        />
       </div>
       <Stack direction="row-reverse">
         <ActionButton handler={handleButtonClick} label="Connect" />
       </Stack>
-      <FeedbackSnackbar
-        handler={handler}
-        params={params}
-      />
+      <FeedbackSnackbar handler={handler} params={params} />
     </Box>
   );
 };

@@ -1,13 +1,30 @@
-import React, { FC } from 'react';
-import { Chip } from '@mui/material';
+import React, { FC } from "react";
+import { Chip } from "@mui/material";
+import appTexts from "../appTexts";
 
 interface ConnectionStatusProps {
-  isConnected: boolean
+  isConnected: boolean;
 }
 
-export const ConnectionStatus: FC<ConnectionStatusProps> = ({ isConnected }) => {
-  if(isConnected)
-    return <Chip color="success" variant="outlined" label="Connected" />
+export const ConnectionStatus: FC<ConnectionStatusProps> = ({
+  isConnected,
+}) => {
+  if (isConnected)
+    return (
+      <Chip
+        color="success"
+        variant="outlined"
+        role="status"
+        label={appTexts.connectionPage.connectedBadge}
+      />
+    );
   else
-    return <Chip color="warning" variant="outlined" label="No connection" />
-}
+    return (
+      <Chip
+        color="warning"
+        variant="outlined"
+        role="status"
+        label={appTexts.connectionPage.notConnectedBadge}
+      />
+    );
+};

@@ -7,6 +7,7 @@ import ScaleIcon from "@mui/icons-material/Scale";
 import AddchartIcon from "@mui/icons-material/Addchart";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import { Link } from "react-router-dom";
+import appTexts from "../appTexts";
 
 export const BottomNav: FC = () => {
   const [value, setValue] = useState(0);
@@ -24,7 +25,7 @@ export const BottomNav: FC = () => {
         }}
       >
         <BottomNavigationAction
-          label="Connection"
+          label={appTexts.connectionPage.navigationTile}
           icon={<CableIcon />}
           component={Link}
           to="/connection"

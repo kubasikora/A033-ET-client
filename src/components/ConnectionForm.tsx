@@ -24,26 +24,29 @@ export const ConnectionForm: FC = () => {
       }}
       noValidate
       autoComplete="off"
+      role="form"
     >
       <div>
         <TextField
+          role="textbox"
           required
           id="ip-address-input"
           label={connectionPage.ipAddressLabel}
-          defaultValue="10.0.0.1"
+          defaultValue={connectionPage.ipAddressDefaultValue}
           fullWidth
         />
       </div>
       <div>
         <TextField
+          role="textbox"
           required
           id="port-input"
           label={connectionPage.portLabel}
-          defaultValue="13334"
+          defaultValue={connectionPage.portDefaultValue}
         />
       </div>
       <Stack direction="row-reverse">
-        <ActionButton handler={handleButtonClick} label="Connect" />
+        <ActionButton handler={handleButtonClick} label={connectionPage.connectButtonText} />
       </Stack>
       <FeedbackSnackbar handler={handler} params={params} />
     </Box>

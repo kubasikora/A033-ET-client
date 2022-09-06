@@ -1,6 +1,6 @@
 import React, { FC, SyntheticEvent } from "react";
 import { Snackbar, Alert } from "@mui/material";
-import { SnackbarInstanceParameters } from '../hooks/useFeedback';
+import { SnackbarInstanceParameters } from "../hooks/useFeedback";
 
 interface FeedbackSnackbarProps {
   handler: (_event: SyntheticEvent, reason?: string) => void;

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { ConnectionStatus } from "../components/ConnectionStatus";
-import { ConnectionForm } from "../components/ConnectionForm";
+import { ConnectionStatus } from "../components/atoms/ConnectionStatus";
+import { ConnectionForm } from "../components/organisms/ConnectionForm";
 import { Typography, Stack } from "@mui/material";
 
 export const ConnectionPage: FC = () => {

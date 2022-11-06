@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Stack, Typography, Box } from "@mui/material";
-import { SessionView } from "../components/SessionView";
-import { NewMeasurement } from "../components/NewMeasurement";
+import { SessionView } from "../components/organisms/SessionView";
+import { NewMeasurement } from "../components/molecules/NewMeasurement";
 
 export const MeasurementPage: FC = () => {
   return <>

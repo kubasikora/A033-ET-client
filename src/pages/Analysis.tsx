@@ -1,17 +1,19 @@
 import React, { FC } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { ExportButton } from "../components/ExportButton";
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { StatCard } from "../components/StatCard";
-import { SessionHistogram } from "../components/SessionHistogram";
+import FileOpenIcon from '@mui/icons-material/FileOpen';
+
+import { StatCard } from "../components/molecules/StatCard";
+import { SessionHistogram } from "../components/molecules/SessionHistogram";
+import { IconActionButton } from '../components/atoms/IconActionButton';
 
 export const AnalysisPage: FC = () => {
   const handleButtonClick = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const content: string = await window.bridge.loadFile();
+    alert(content);
   };
 
   return (
@@ -21,7 +23,7 @@ export const AnalysisPage: FC = () => {
           <Typography variant="h5">Current session:</Typography>
           <Typography variant="h6" color="text.secondary">02-06-2022-19-28-03.csv</Typography>
         </Stack>
-        <ExportButton handler={handleButtonClick} />
+        <IconActionButton handler={handleButtonClick} icon={<FileOpenIcon />} tooltipText={"Open new file"}/>
       </Stack>
       <Box sx={{ pb: 5 }}>
         <ImageList cols={3} gap={8}>

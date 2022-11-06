@@ -1,13 +1,13 @@
 {
   "name": "a033-et-client",
   "productName": "a033-et-client",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
+    "build": "electron-forge package",
+    "package": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "jest"
@@ -47,14 +47,17 @@
         [
           "@electron-forge/plugin-webpack",
           {
-            "mainConfig": "./webpack.main.config.js",
+            "mainConfig": "./webpack/main.js",
             "renderer": {
-              "config": "./webpack.renderer.config.js",
+              "config": "./webpack/renderer.js",
               "entryPoints": [
                 {
-                  "html": "./src/index.html",
-                  "js": "./src/renderer.ts",
-                  "name": "main_window"
+                  "html": "./public/index.html",
+                  "js": "./src/index.tsx",
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./electron/bridge.ts"
+                  }
                 }
               ]
             },
@@ -65,7 +68,10 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "7.14.6",
+    "@babel/plugin-transform-runtime": "7.14.5",
     "@babel/preset-env": "7.17.10",
+    "@babel/preset-react": "7.14.5",
     "@babel/preset-typescript": "7.16.7",
     "@electron-forge/cli": "6.0.0-beta.63",
     "@electron-forge/maker-deb": "6.0.0-beta.63",
@@ -73,7 +79,7 @@
     "@electron-forge/maker-squirrel": "6.0.0-beta.63",
     "@electron-forge/maker-zip": "6.0.0-beta.63",
     "@electron-forge/plugin-webpack": "6.0.0-beta.63",
-    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "13.2.0",
     "@testing-library/user-event": "14.1.1",
     "@types/jest": "27.5.0",
@@ -94,6 +100,7 @@
     "style-loader": "3.3.1",
     "ts-jest": "28.0.2",
     "ts-loader": "9.3.0",
+    "ts-mockito": "^2.6.1",
     "typescript": "4.5.4"
   },
   "dependencies": {
@@ -104,11 +111,10 @@
     "@types/material-ui": "0.21.12",
     "electron-squirrel-startup": "1.0.0",
     "framer-motion": "6.3.3",
-    "jest-dom": "4.0.0",
+    "fs": "^0.0.1-security",
+    "path-browserify": "^1.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.3.0",
-    "recharts": "2.1.9",
-    "victory": "36.4.0"
+    "react-router-dom": "6.3.0"
   }
 }

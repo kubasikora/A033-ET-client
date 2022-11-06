@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import Container from "@mui/material/Container";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
-import { ApplicationHeader } from "./components/ApplicationHeader";
-import { BottomNav } from "./components/BottomNav";
+import { ApplicationHeader } from "./components/organisms/ApplicationHeader";
+import { BottomNav } from "./components/organisms/BottomNav";
 
 import { CalibrationPage } from "./pages/Calibration";
 import { ConnectionPage } from "./pages/Connection";

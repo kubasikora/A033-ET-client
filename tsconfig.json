@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "forceConsistentCasingInFileNames": false,
     "module": "commonjs",
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,5 +19,5 @@
     ]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "electron/**/*"]
 }
